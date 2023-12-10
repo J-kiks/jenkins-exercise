@@ -42,10 +42,10 @@ pipeline {
             steps {
                 script {
                     echo "committing updated version to git..."
-                    withCredentials([string(credentialsId: 'git-hub-token', variable: 'SECRET_PASS')]){
+                    withCredentials([string(credentialsId: 'git-hub-token', passwordVariable: 'PASS', usernameVariable: 'USER')]){
                         sh 'git config --global user.email "jenkins-exercise@example.com"'
                         sh 'git config --global user.name "jenkins-exercise"'
-                        sh "git remote set-url origin https://${SECRET_PASS}@github.com/J-kiks/jenkins-exercise.git"
+                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/J-kiks/jenkins-exercise.git"
                         sh 'git add .'
                         sh 'git commit -m "committing new app version"'
                         sh 'git push origin HEAD:master'
