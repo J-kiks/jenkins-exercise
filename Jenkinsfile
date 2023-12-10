@@ -3,6 +3,9 @@ pipeline {
     tools {
         nodejs "node"
     }
+    environment {
+        GIT_CREDS = credentials("git-credentials")
+    }
     stages {
         stage ("Version Increment") {
             steps {
@@ -42,14 +45,14 @@ pipeline {
             steps {
                 script {
                     echo "committing updated version to git..."
-                    withCredentials([usernamePassword(credentialsId: 'git-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-                        sh 'git config --global user.email "jenkins-exercise@example.com"'
-                        sh 'git config --global user.name "jenkins-exercise"'
-                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/J-kiks/jenkins-exercise.git"
-                        sh 'git add .'
-                        sh 'git commit -m "committing new app version"'
-                        sh 'git push origin HEAD:master'
-                    }
+
+                    sh 'git config --global user.email "jenkins-exercise@example.com"'
+                    sh 'git config --global user.name "jenkins-exercise"'
+                    sh 'git remote set-url origin https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/J-kiks/jenkins-exercise.git'
+                    sh 'git add .'
+                    sh 'git commit -m "committing new app version"'
+                    sh 'git push origin HEAD:master'
+
                 }
             }
         }
