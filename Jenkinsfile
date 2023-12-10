@@ -45,7 +45,6 @@ pipeline {
             steps {
                 script {
                     echo "committing updated version to git..."
-
                     sh 'git config --global user.email "jenkins-exercise@example.com"'
                     sh 'git config --global user.name "jenkins-exercise"'
                     sh 'git remote set-url origin https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/J-kiks/jenkins-exercise.git'
