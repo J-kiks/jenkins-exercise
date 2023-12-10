@@ -38,7 +38,7 @@ pipeline {
                 }
             }
         }
-        stage("Commit New App Version to Repo") {
+        stage("Commit App Version to Repo") {
             steps {
                 script {
                     echo "committing updated version to git..."
