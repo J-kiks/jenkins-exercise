@@ -48,7 +48,7 @@ pipeline {
                         sh 'git remote set-url origin https://$USER:$PASS@https://github.com/J-kiks/jenkins-exercise.git'
                         sh 'git add .'
                         sh 'git commit -m "committing new app version"'
-                        sh git push origin HEAD:master
+                        sh 'git push origin HEAD:master'
                     }
                 }
             }
