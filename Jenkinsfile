@@ -47,11 +47,10 @@ pipeline {
                     sh 'git status'
                     sh 'git branch'
                     sh 'git config --list'
-                    sh "git remote set-url origin https://J-kiks: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@github.com/J-kiks/jenkins-exercise.git"
+                    sh 'git remote set-url origin https://J-kiks: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@github.com/J-kiks/jenkins-exercise.git'
                     sh 'git add .'
                     sh 'git commit -m "committing new app version"'
                     sh 'git push origin HEAD:master'
-                    }
                 }
             }
         }
