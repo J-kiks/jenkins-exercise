@@ -50,7 +50,7 @@ pipeline {
                     sh 'git remote set-url origin https://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@github.com/J-kiks/jenkins-exercise.git'
                     sh 'git add .'
                     sh 'git commit -m "committing new app version"'
-                    sh 'git push -u origin master'
+                    sh 'git push -u origin HEAD:master'
                 }
             }
         }
