@@ -48,7 +48,7 @@ pipeline {
                         sh 'git status'
                         sh 'git branch'
                         sh 'git config --list'
-                        sh "git remote set-url origin https://${PASS}@github.com/J-kiks/jenkins-exercise.git"
+                        sh "git remote set-url origin https://${USER}:${PASS}@github.com/J-kiks/jenkins-exercise.git"
                         sh 'git add .'
                         sh 'git commit -m "committing new app version"'
                         sh 'git push origin HEAD:master'
