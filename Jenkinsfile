@@ -42,15 +42,15 @@ pipeline {
             steps {
                 script {
                     echo "committing updated version to git..."
-                    sh 'git config --global user.email "jenkins-exercise@example.com"'
-                    sh 'git config --global user.name "jenkins-exercise"'
+                    sh 'git config user.email "jenkins-exercise@example.com"'
+                    sh 'git config user.name "jenkins-exercise"'
                     sh 'git status'
                     sh 'git branch'
                     sh 'git config --list'
-                    sh 'git remote set-url origin https://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@github.com/J-kiks/jenkins-exercise.git'
+                    sh 'git remote set-url origin https://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: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@github.com/J-kiks/jenkins-exercise.git'
                     sh 'git add .'
                     sh 'git commit -m "committing new app version"'
-                    sh 'git push -u origin HEAD:master'
+                    sh 'git push origin HEAD:master'
                 }
             }
         }
